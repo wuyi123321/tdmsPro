@@ -8,8 +8,15 @@ import 'element-ui/lib/theme-chalk/index.css';    // 默认主题
 import '../static/css/icon.css';
 import "babel-polyfill";
 
+import {post,fetch,patch,put} from './api/http'
+//定义全局变量
+Vue.prototype.$post=post;
+Vue.prototype.$fetch=fetch;
+Vue.prototype.$patch=patch;
+Vue.prototype.$put=put;
+Vue.prototype.$path="http://172.30.244.10:8000/";
 Vue.use(ElementUI, { size: 'small' });
-Vue.prototype.$axios = axios;
+//Vue.prototype.$axios = axios;
 
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
@@ -17,7 +24,7 @@ router.beforeEach((to, from, next) => {
     if(!role && to.path !== '/login'){
         next('/login');
     }else if(to.meta.permission){
-        // 如果是管理员权限则可进入，这里只是简单的模拟管理员权限而已
+        //  如果是管理员权限则可进入，这里只是简单的模拟管理员权限而已
         role === 'admin' ? next() : next('/403');
     }else{
         // 简单的判断IE10及以下不进入富文本编辑器，该组件不兼容
@@ -29,7 +36,7 @@ router.beforeEach((to, from, next) => {
             next();
         }
     }
-})
+});
 
 new Vue({
     router,

@@ -27,8 +27,8 @@
         data: function(){
             return {
                 ruleForm: {
-                    username: 'admin',
-                    password: '123123'
+                    username: 'cjh',
+                    password: 'chengjunhui'
                 },
                 rules: {
                     username: [
@@ -40,18 +40,42 @@
                 }
             }
         },
+        created:function(){
+//             this.login();
+        },
         methods: {
             submitForm(formName) {
-                this.$refs[formName].validate((valid) => {
+                let vm = this;
+                this.$refs[formName].validate( async(valid) => {
                     if (valid) {
-                        localStorage.setItem('ms_username',this.ruleForm.username);
+
+                        let res = await vm.$post(vm.$path+'login/',{
+                            username:"cjh",
+                            password:"chenjunhui"
+                        });
+                        console.log(res);
+                        if(res.user){
+                            localStorage.setItem('token',res.user.token);
+                            localStorage.setItem('tdms_user',JSON.stringify(res.user));
+                        }
+                        console.log("_______________");
                         this.$router.push('/');
                     } else {
-                        console.log('error submit!!');
                         return false;
                     }
                 });
-            }
+            },
+//            login:function(){
+//                let vm = this;
+//                let pram = {
+//                    username:"cjh",
+//                    password:"chenjunhui",
+//                };
+//                vm.$post(vm.$path+'login/',pram).then((response) => {
+//                        console.log(response);
+//                        localStorage.setItem('token',response.user.token);
+//                    })
+//            }
         }
     }
 </script>

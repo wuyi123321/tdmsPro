@@ -4,7 +4,7 @@
         <div class="collapse-btn" @click="collapseChage">
             <i class="el-icon-menu"></i>
         </div>
-        <div class="logo">后台管理系统</div>
+        <div class="logo">TDMS后台管理系统</div>
         <div class="header-right">
             <div class="header-user-con">
                 <!-- 全屏显示 -->
@@ -64,7 +64,7 @@
             // 用户名下拉菜单选择事件
             handleCommand(command) {
                 if(command == 'loginout'){
-                    localStorage.removeItem('ms_username')
+                    localStorage.removeItem('tdms_user')
                     this.$router.push('/login');
                 }
             },

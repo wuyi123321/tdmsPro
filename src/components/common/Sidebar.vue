@@ -41,18 +41,15 @@
                     {
                         icon: 'el-icon-lx-people',
                         index: '1',
-                        title: '权限管理',
+                        title: '用户权限',
                         subs: [
                             {
                                 index: 'user_management',
                                 title: '用户管理'
                             },
                             {
-                                index: 'role_management',
-                                title: '角色管理'
-                            },{
                                 index: 'menu_management',
-                                title: '菜单管理'
+                                title: '角色权限'
                             }
                         ]
                     },
@@ -68,15 +65,117 @@
                             {
                                 index: 'sampleTypemManagement',
                                 title: '样品类型管理'
+                            },{
+                                index: 'testStandardManagement',
+                                title: '测试依据'
+                            },{
+                                index: 'testItemManagement',
+                                title: '测试项目'
+                            },{
+                                index: 'testCategoryManagement',
+                                title: '测试类别管理'
+                            },{
+                                index: 'sampleStorageManagement',
+                                title: '样品储位管理'
                             },
                         ]
                     },
-
-
-
+                    {
+                        icon: 'el-icon-lx-apps',
+                        index: '3',
+                        title: '测试资源',
+                        subs: [
+                            {
+                                index: 'laboratoryEquipmentCapability',
+                                title: '实验室设备能力'
+                            },
+                            {
+                                index: 'equipmentlLedger',
+                                title: '设备台账'
+                            },
+                        ]
+                    },
+                    {
+                        icon: 'el-icon-lx-apps',
+                        index: '4',
+                        title: '收样管理',
+                        subs: [
+                            {
+                                index: 'confirmationoOfSample',
+                                title: '样品确认'
+                            },
+                            {
+                                index: 'sampleReceive',
+                                title: '样品接收'
+                            },{
+                                index: 'sampleRent',
+                                title: '样品领取'
+                            },{
+                                index: 'sampleReturn',
+                                title: '样品归还'
+                            }
+                        ]
+                    },{
+                        icon: 'el-icon-lx-apps',
+                        index: '5',
+                        title: '排配系统',
+                        subs: [
+                            {
+                                index: 'SampleFillet',
+                                title: '样品排配'
+                            },
+                            {
+                                index: 'channelInfo',
+                                title: '通道信息'
+                            }
+                        ]
+                    },{
+                        icon: 'el-icon-lx-apps',
+                        index: '6',
+                        title: '测试任务',
+                        subs: [
+                            {
+                                index: 'waitGetSamples',
+                                title: '待领样'
+                            },
+                            {
+                                index: 'waitTest',
+                                title: '待测试'
+                            }, {
+                                index: 'testInProcess',
+                                title: '测试中'
+                            }
+                        ]
+                    },{
+                        icon: 'el-icon-lx-apps',
+                        index: '7',
+                        title: '数据审核',
+                        subs: [
+                            {
+                                index: 'dataAuditing',
+                                title: '数据审核'
+                            },
+                            {
+                                index: 'exceptionHandling',
+                                title: '异常处理',
+                                subs: [
+                                    {
+                                        index: 'SamplesAbnormal',
+                                        title: '样品异常'
+                                    },{
+                                        index: 'testDataException',
+                                        title: '测试数据异常'
+                                    },{
+                                        index: 'deviceExceptionHandling',
+                                        title: '设备异常处理'
+                                    },
+                                ]
+                            }
+                        ]
+                    },
                     {
                         icon: 'el-icon-lx-calendar',
-                        index: '3',
+                        index: '0',
                         title: '其他组件',
                         subs: [
                             {

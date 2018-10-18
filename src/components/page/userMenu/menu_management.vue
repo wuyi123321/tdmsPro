@@ -13,7 +13,7 @@
                     <el-option key="2" label="湖南省" value="湖南省"></el-option>
                 </el-select>
                 <el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>
-                <el-button type="primary" icon="search" @click="search">搜索</el-button>
+                <el-button type="primary" icon="search" @click="login">搜索</el-button>
             </div>
             <el-table :data="data" border class="table" ref="multipleTable" @selection-change="handleSelectionChange">
                 <el-table-column type="selection" width="55" align="center"></el-table-column>
@@ -67,7 +67,7 @@
     </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
     export default {
         name: 'basetable',
         data() {
@@ -91,7 +91,8 @@
             }
         },
         created() {
-            this.getData();
+//            this.getData();
+            this.login()
         },
         computed: {
             data() {
@@ -115,6 +116,16 @@
             }
         },
         methods: {
+            login:function(){
+                console.log("aaaaaaaaa");
+                let vm = this;
+                let pram = {
+                    user_code:170711124
+            };
+                vm.$fetch(vm.$path+'users/users/',pram).then((response) => {
+                    console.log(response)
+            })
+            },
             // 分页导航
             handleCurrentChange(val) {
                 this.cur_page = val;
@@ -126,7 +137,7 @@
                 if (process.env.NODE_ENV === 'development') {
                     this.url = '/ms/table/list';
                 };
-                this.$axios.post(this.url, {
+                this.$post(this.url, {
                     page: this.cur_page
                 }).then((res) => {
                     this.tableData = res.data.list;
