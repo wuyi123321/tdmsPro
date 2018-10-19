@@ -27,12 +27,18 @@ axios.interceptors.response.use(
         return response;
     },
     error => {
+        console.log("+++++++++");
         console.log(error.response);
-        if(error.response.status == 401){
-            Message.error('登录信息已失效，请重新登录');
-            router.push({
-                path:"/login"
-            });
+        console.log(error);
+        if(error.response){
+            if(error.response.status == 401){
+                Message.error('登录信息已失效，请重新登录');
+                router.push({
+                    path:"/login"
+                });
+            }
+        }if(!error.response){
+            Message.error('请求失败');
         }
         return Promise.reject(error)
     }
